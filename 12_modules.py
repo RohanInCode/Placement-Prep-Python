@@ -1,76 +1,114 @@
-# import math
-# num = 16
-# print(math.sqrt(num)) # Square Root 
+# =====================================================
+# 🔹 PYTHON BUILT-IN MODULES PRACTICE
+# math | random | datetime | collections | os
+# =====================================================
 
-# num = 16
-# result = math.sqrt(num)
-# print("Square root of num:",result) #Square Root
 
-# print(math.pow(2,3)) #Power
 
-# print(math.floor(7.8))
-# print(math.ceil(7.8))
-# print(math.fabs(-5))
+# =====================================================
+# 1️⃣ MATH MODULE
+# =====================================================
+
+import math
+
+num = 16
+
+print("Square root:", math.sqrt(num))
+print("Power 2^3:", math.pow(2, 3))
+print("Floor:", math.floor(7.8))
+print("Ceil:", math.ceil(7.8))
+print("Absolute:", math.fabs(-5))
+
+
+
+# =====================================================
+# 2️⃣ RANDOM MODULE
+# =====================================================
 
 import random
-# dice = random.randint(1,10)
-# print(dice)
 
-# student=["Rahul","karan","vishal","Neha"]
-# selected=random.choice(student)
-# print("Congratulation:",selected)
+print("\n--- Random Demo ---")
 
-# r=random.randint(1000,9999)
-# print (r)
+dice = random.randint(1, 10)
+print("Dice:", dice)
+
+students = ["Rahul", "Karan", "Vishal", "Neha"]
+selected = random.choice(students)
+print("Selected student:", selected)
+
+otp = random.randint(1000, 9999)
+print("OTP:", otp)
+
+
+
+# =====================================================
+# 3️⃣ DATETIME MODULE
+# =====================================================
 
 import datetime
-# current = datetime.datetime.now()
-# print(current)
 
-# Today = datetime.date.today()
-# current.date
-# current.month
-# current.year
+print("\n--- DateTime Demo ---")
 
-# date1=datetime.date(2026,1,1)
-# date2=datetime.date(2026,1,29)
-# diff = date2-date1
-# print(diff)
+current = datetime.datetime.now()
+print("Current DateTime:", current)
 
-# from collections import Counter
+today = datetime.date.today()
+print("Today:", today)
 
-# fruits=["banana","Apple","Pineapple","Mango","banana","Apple","Pineapple","Mango","banana","Apple","Pineapple","Mango"]
-# count=Counter(fruits)
-# print(count)
+date1 = datetime.date(2026, 1, 1)
+date2 = datetime.date(2026, 1, 29)
+
+diff = date2 - date1
+print("Days difference:", diff)
 
 
-# sentence = "Python is easy and python is powerful"
-# a=sentence.split()
-# print(a)
+
+# =====================================================
+# 4️⃣ COLLECTIONS MODULE (Counter)
+# =====================================================
+
+from collections import Counter
+
+fruits = [
+    "banana", "apple", "pineapple", "mango",
+    "banana", "apple", "banana"
+]
+
+count = Counter(fruits)
+print("\nFruit Count:", count)
 
 
+
+# =====================================================
+# 5️⃣ STRING SPLIT EXAMPLE
+# =====================================================
+
+sentence = "Python is easy and python is powerful"
+words = sentence.split()
+print("Words:", words)
+
+
+
+# =====================================================
+# 6️⃣ OS MODULE (FILES & FOLDERS)
+# =====================================================
 
 import os
-# current_path = os.getcwd()
-# print("current.path:",current_path)
 
-# a=input("Enter the command:")
+print("\n--- OS Demo ---")
 
-# item = os.listdir()
-# print("items:",item)
-# if a == "ls":
-#     print(item)
-# else:
-#     print("Invalid Command")
+current_path = os.getcwd()
+print("Current path:", current_path)
 
-import os
+items = os.listdir()
+print("Items in folder:", items)
 
-Folder_name = "My_Folder"
 
-if not os.path.exists(Folder_name):
-    os.mkdir(Folder_name)
+# Create folder if not exists
+folder_name = "My_Folder"
+
+if not os.path.exists(folder_name):
+    os.mkdir(folder_name)
     print("Folder Created Successfully")
 else:
     print("Folder is already present")
-
-
