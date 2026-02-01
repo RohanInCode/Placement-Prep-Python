@@ -110,7 +110,7 @@ class Python(Course, ExamInterface):
         print("8 Hour")
 
     def examtype(self):
-        print("Exam type is practical based")
+        print("Exam is practical based")
 
 
 print("\n--- Course Demo ---")
