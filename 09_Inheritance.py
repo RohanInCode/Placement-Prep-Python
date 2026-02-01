@@ -1,167 +1,173 @@
-# class Human:
-#      def eat(self):
-#          print("Human can eat")
-    
-
-# class Student(Human):
-#      def study(self):
-#         print("Students can study")
-
-# s1= Student()
-# s1.study()
-# s1.eat()
+# =====================================================
+# 🔹 INHERITANCE PRACTICE – SINGLE / MULTIPLE / OVERRIDING
+# =====================================================
 
 
-# class Animals:
-#     def speak(self):
-#         print("Animals can speak")
-# class Dogs(Animals):
-#     def bark(self):
-#         print("Dogs can only bark")
-        
-# a1= Dogs()
-# a1.bark()
-# a1.speak()
+# =====================================================
+# 1️⃣ SINGLE INHERITANCE
+# =====================================================
+
+class Human:
+    def eat(self):
+        print("Human can eat")
 
 
-# class Nokia:
-#     def pc(self):
-#         print("Nokia can only call")
-# class Iphone(Nokia):
-#     def ctrl(self):
-#         print("Ip can call and access the internet")
-
-# p1=Iphone()
-# p1.pc()
-# p1.ctrl()
+class Student(Human):
+    def study(self):
+        print("Student can study")
 
 
-# class Parent:
-#     def __init__(self):
-#         print("This is a parent class")
-
-# class Child(Parent):
-#     def __init__(self):
-#         super().__init__()
-#         print("this is child constructor")
-
-# obj=Child()
-
-
-# class Parent:
-#     def work(self):
-#         print("I will go to work")
-# class Child(Parent):
-#     def work(self):
-#         print("I will go to school")
-
-# obj=Child()
-# obj.work()
+print("\n--- Single Inheritance ---")
+s = Student()
+s.study()
+s.eat()
 
 
 
-# class Parent:
-#     def oc(self):
-#         print("I am a Software Dev")
-# class Mother:
-#     def work(self):
-#         print("I am a house wife")
-    
-# class Child(Parent,Mother):
-#     def __init__(self):
-#         print("I go to school")
+# =====================================================
+# 2️⃣ MULTILEVEL INHERITANCE
+# =====================================================
 
-# obj=Child()
-# obj.oc()
-# obj.work()
+class Nokia:
+    def call(self):
+        print("Can make calls")
 
+class Smartphone(Nokia):
+    def sms(self):
+        print("Can send SMS")
 
-
-# class Parent:
-#     def shape(self):
-#         print("Square")
-# class Child(Parent):
-#     def shape(self):
-#         print("Circle")
-#         super().shape()
-
-# obj = Child()
-# obj.shape()
+class Iphone(Smartphone):
+    def internet(self):
+        print("Can use internet")
 
 
-
-# class Teacher:
-#     def teach(self):
-#         print("Teacher is Teaching")
-# class Coder:
-#     def code(self):
-#         print("Coder codes")
-# class Student(Teacher,Coder):
-#     # def __init__(self):
-#     #     print("Student studies and pass the exam")
-#     pass
-
-# obj=Student()
-# obj.code()
-# obj.teach()
+p = Iphone()
+p.call()       # from Nokia
+p.sms()        # from Smartphone
+p.internet()   # from Iphone
 
 
 
 
-# class Parent:
-#     def __init__(self):
-#         self.__x=10
+# =====================================================
+# 3️⃣ CONSTRUCTOR INHERITANCE (super)
+# =====================================================
 
-# class Child(Parent):
-#     def show(self):
-    
-#         print(self.__x)
-# obj=Child()
-# obj.show()
+class Parent:
+    def __init__(self):
+        print("Parent constructor")
 
 
-
-# class Parent:
-#     def __init__(self):
-#         self.__x=10
-
-# class Child(Parent):
-#     def show(self):
-#         print(self._Parent__x)
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        print("Child constructor")
 
 
-# obj=Child()
-# obj.show()
+print("\n--- Constructor Inheritance ---")
+Child()
 
 
 
-# class Parent:
-#     def __init__(self):
-#         self._x=100
-# class Child(Parent):
-#     def show(self):
-#         print(self._x)
+# =====================================================
+# 4️⃣ METHOD OVERRIDING
+# =====================================================
 
-# # obj=Child()
-# # obj.show()
-
-# obj1=Parent()
-# print(obj1._x)
+class Parent:
+    def work(self):
+        print("Go to office")
 
 
+class Child(Parent):
+    def work(self):
+        print("Go to school")
 
 
-#QUESTION
+print("\n--- Method Overriding ---")
+Child().work()
+
+
+
+# =====================================================
+# 5️⃣ MULTIPLE INHERITANCE
+# =====================================================
+
+class Teacher:
+    def teach(self):
+        print("Teacher teaches")
+
+
+class Coder:
+    def code(self):
+        print("Coder codes")
+
+
+class Student(Teacher, Coder):
+    pass
+
+
+print("\n--- Multiple Inheritance ---")
+obj = Student()
+obj.teach()
+obj.code()
+
+
+
+# =====================================================
+# 6️⃣ super() WITH PARENT METHOD
+# =====================================================
+
+class Shape:
+    def draw(self):
+        print("Square")
+
+
+class Circle(Shape):
+    def draw(self):
+        print("Circle")
+        super().draw()
+
+
+print("\n--- super() Example ---")
+Circle().draw()
+
+
+
+# =====================================================
+# 7️⃣ PRIVATE VARIABLE (NAME MANGLING)
+# =====================================================
+
+class Parent:
+    def __init__(self):
+        self.__x = 10   # private
+
+
+class Child(Parent):
+    def show(self):
+        print(self._Parent__x)   # accessing private safely
+
+
+print("\n--- Private Variable Access ---")
+Child().show()
+
+
+
+# =====================================================
+# 8️⃣ ENCAPSULATION + INHERITANCE
+# =====================================================
 
 class Person:
-    def __init__(self,name):
-        self.__name=name
+    def __init__(self, name):
+        self.__name = name
+
     def get_name(self):
         return self.__name
+
+
 class Student(Person):
     def show_name(self):
-        print("My name is",self.get_name())
+        print("My name is", self.get_name())
 
-s1=Student("Rohan")
-s1.show_name()
 
+print("\n--- Encapsulation + Inheritance ---")
+Student("Rohan").show_name()
