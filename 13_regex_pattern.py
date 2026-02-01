@@ -1,97 +1,131 @@
+# =====================================================
+# 🔹 REGEX PATTERNS PRACTICE
+# Dot | Anchors | Quantifiers | Sets | Special chars | Groups
+# =====================================================
+
 import re
-#1
-
-# text="cat cot c@t"
-# result=re.findall("c.t",text)
-# print(result)
-
-#2
-# text="Hello World"
-# print(bool(re.search("^Hello",text)))
-# print(bool(re.search("^World",text)))
-
-#3
-# print(bool(re.search("Hello$",text)))
-# print(bool(re.search("World$",text)))
 
 
-#4
-#0 or more (*)
 
-# text ="helloooo"
-# result = re.findall("lo+",text)
-# print(result)
+# =====================================================
+# 1️⃣ DOT (.)
+# matches any single character
+# =====================================================
 
-# text="color clolur"
-# result=re.findall("colou?r",text)
-# print(result)
+text = "cat cot c@t"
+print("Dot:", re.findall("c.t", text))
 
-# #7.Character set([])
-# text = "apple ball cat"
-# result=re.findall("[abv]",text)
-# print(result)
 
-# #8.Digits([0-9])
-# text="My age is  30"
-# result=re.findall("[0-9]",text)
-# print(result)
 
-#9
-# text = "MY AGe is 40"
-# result=re.findall("[A-Z]",text)
-# print(result)
+# =====================================================
+# 2️⃣ START ANCHOR (^)
+# =====================================================
 
-# 10
-# text = "you are greAT AT codING"
-# result=re.findall("[a-z]",text)
-# print(result)
+text = "Hello World"
+print("Starts with Hello:", bool(re.search("^Hello", text)))
+print("Starts with World:", bool(re.search("^World", text)))
 
-#11 All cap and small characters
-# text="You are GREAT at Coding"
-# result=re.findall("[A-z a-z]",text)
-# print(result)
 
-#12 Digits
-# text = "MY 78e is 40"
-# result=re.findall("[\d]",text)
-# print(result)
 
-#13 Non Digits
-# text="My age is 21 and 2005"
-# result=re.findall("[\D]",text)
-# print(result)
+# =====================================================
+# 3️⃣ END ANCHOR ($)
+# =====================================================
 
-#14 Word Character
-# text="Marks: 90"
-# result=re.findall("[\w]",text)
-# print(result)
+print("Ends with Hello:", bool(re.search("Hello$", text)))
+print("Ends with World:", bool(re.search("World$", text)))
 
-#15 No Char
-# text = "Marks: 90"
-# result=re.findall("\W",text)
-# print(result)
 
-# 16 Space 
-# text="Ma rks: 90"
-# result=re.findall("\s",text)
-# print(result)
 
-#17 No space
-# text="Marks: 90"
-# result=re.findall("\S",text)
-# print(result)
+# =====================================================
+# 4️⃣ + (one or more)
+# =====================================================
 
-#18
-# text="Phone: 7993141314"
-# results=re.findall("\d{10}",text)
-# print(results)
+text = "helloooo"
+print("lo+ :", re.findall("lo+", text))
 
-#19 OR Opereator
-# text="I have a cat and a dog"
-# results=re.findall("Cat|Dog",text)
-# print(results)
 
-#20 Grouping
-text= "abab ab"
-results=re.findall("(ab)+",text)
-print(results)
+
+# =====================================================
+# 5️⃣ ? (optional)
+# =====================================================
+
+text = "color colour"
+print("Optional u:", re.findall("colou?r", text))
+
+
+
+# =====================================================
+# 6️⃣ CHARACTER SET []
+# =====================================================
+
+text = "apple ball cat"
+print("[abc]:", re.findall("[abc]", text))
+
+
+
+# =====================================================
+# 7️⃣ DIGITS [0-9]
+# =====================================================
+
+text = "My age is 30"
+print("Digits:", re.findall("[0-9]", text))
+
+
+
+# =====================================================
+# 8️⃣ CAPITAL LETTERS
+# =====================================================
+
+text = "MY AGe is 40"
+print("Caps:", re.findall("[A-Z]", text))
+
+
+
+# =====================================================
+# 9️⃣ SMALL LETTERS
+# =====================================================
+
+text = "you are greAT AT codING"
+print("Small:", re.findall("[a-z]", text))
+
+
+
+# =====================================================
+# 🔟 SPECIAL SHORTCUTS
+# =====================================================
+
+text = "Marks: 90"
+
+print("\\d (digits):", re.findall(r"\d", text))
+print("\\D (non-digits):", re.findall(r"\D", text))
+print("\\w (word chars):", re.findall(r"\w", text))
+print("\\W (non-word):", re.findall(r"\W", text))
+print("\\s (space):", re.findall(r"\s", text))
+print("\\S (non-space):", re.findall(r"\S", text))
+
+
+
+# =====================================================
+# 1️⃣1️⃣ QUANTIFIER {n}
+# =====================================================
+
+text = "Phone: 7993141314"
+print("10 digits:", re.findall(r"\d{10}", text))
+
+
+
+# =====================================================
+# 1️⃣2️⃣ OR OPERATOR (|)
+# =====================================================
+
+text = "I have a cat and a dog"
+print("OR:", re.findall("cat|dog", text))
+
+
+
+# =====================================================
+# 1️⃣3️⃣ GROUPING ()
+# =====================================================
+
+text = "abab ab"
+print("Grouping:", re.findall("(ab)+", text))
